@@ -1,9 +1,9 @@
 import React from 'react';
 
-// import { Container } from './styles';
+import { Title } from './styles';
 
 const Dashboard: React.FC = () => {
-  return <div>Dashboard</div>;
+  return <Title>Dashboard</Title>;
 };
 
 export default Dashboard;
