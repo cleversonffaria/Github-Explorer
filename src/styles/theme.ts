@@ -1,5 +1,6 @@
 const theme = {
-  color: 'red',
+  primary: '#04d361',
+  fontDark: '#3A3A3A',
 };
 
 export type TypeTheme = typeof theme;
