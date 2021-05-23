@@ -1,7 +1,7 @@
 import React from 'react';
 
-function App() {
+const App: React.FC = () => {
   return <h1>Iniciando projeto</h1>;
-}
+};
 
 export default App;
