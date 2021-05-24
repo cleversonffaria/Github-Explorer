@@ -17,6 +17,7 @@ interface Repository {
 }
 
 const Dashboard: React.FC = () => {
+  const [name, setName] = useState('');
   const [newRepo, setNewRepo] = useState('');
   const [inputError, setInputError] = useState('');
   const [repositories, setRepositories] = useState<Repository[]>(() => {
@@ -38,8 +39,12 @@ const Dashboard: React.FC = () => {
 
   async function handleAddRepository(event: FormEvent) {
     event.preventDefault();
+    if (!name) {
+      setInputError('Digite o nome do autor');
+      return;
+    }
     if (!newRepo) {
-      setInputError('Digite o auto/nome do repositório');
+      setInputError('Digite o nome do repositório');
       return;
     }
 
@@ -50,6 +55,7 @@ const Dashboard: React.FC = () => {
 
       setRepositories([...repositories, repository]);
       setNewRepo('');
+      setName('');
       setInputError('');
     } catch (error) {
       setInputError('Erro na busca por esse repositório');
@@ -64,8 +70,14 @@ const Dashboard: React.FC = () => {
       <Form hasError={!!inputError} onSubmit={handleAddRepository}>
         <input
           type="text"
+          value={name}
+          placeholder="Digite nome ao autor"
+          onChange={(e) => setName(e.target.value)}
+        />
+        <input
+          type="text"
           value={newRepo}
-          placeholder="Digite o nome do repositório"
+          placeholder="Digite nome do repositório"
           onChange={(e) => setNewRepo(e.target.value)}
         />
         <button type="submit">Pesquisar</button>

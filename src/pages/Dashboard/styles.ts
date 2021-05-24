@@ -16,7 +16,7 @@ export const Title = styled.h1`
 
 export const Form = styled.form<FormProps>`
   margin-top: 40px;
-  max-width: 700px;
+  max-width: 800px;
 
   display: flex;
 
@@ -27,8 +27,13 @@ export const Form = styled.form<FormProps>`
     border: 0;
     border-radius: 5px 0 0 5px;
     color: ${({ theme }) => theme.fontDark};
-    border: 2px solid #fff;
+    border: 2px solid #ddd;
     border-right: none;
+
+    & + input {
+      flex: 2;
+      border-radius: 0;
+    }
 
     ${({ hasError }) =>
       hasError &&
